@@ -1,3 +1,4 @@
+import {useLocation} from 'react-router-dom';
 
 const welcomeStyle = {
     margin: "auto",
@@ -5,10 +6,11 @@ const welcomeStyle = {
     color: "black"
 }
 
-export const Welcome =() => {
+export const Welcome =(state) => {
+    const location = useLocation();
     return (
         <div style={welcomeStyle}>
-            <h1>Welcome to Copilot</h1>
+            <h1>Welcome to Copilot Demo {location.state.data.username}</h1>
             </div>
     )
 }

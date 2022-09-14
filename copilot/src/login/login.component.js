@@ -57,22 +57,21 @@ export const Login = () => {
     const passwordRef = React.useRef();
     const navigate = useNavigate();
 
-    // user name validation
+//user name validation
     const validateUsername = (username) => {
         if (username.length < 3) {
             return 'Username must be at least 3 characters long';
         }
         return '';
     }
-    // password validation
+//password validation
     const validatePassword = (password) => {
         if (password.length < 3) {
             return 'Password must be at least 3 characters long';
         }
         return '';
     }
-    // submit form
-   
+
     const handleSubmit = e => {
         e.preventDefault();
         if(validateUsername(usernameRef.current.value) === '' && validatePassword(passwordRef.current.value) === '') {
@@ -80,16 +79,13 @@ export const Login = () => {
             username: usernameRef.current.value,
             password: passwordRef.current.value
         };
-        navigate('/welcome', {state: {data}});
+        navigate('/customerCredentials', {state: {data}});
         } else {  
             alert('Invalid username or password');
         }   
-        
-      //   const data = {
-      //     username: usernameRef.current.value,
-      //     password: passwordRef.current.value
-      // };
+     
     };
+
     return (
       <form style={formStyle} onSubmit={handleSubmit} >
         <Field ref={usernameRef} label="Username:" type="text" />
